@@ -1,9 +1,9 @@
 import { TaskStyle } from "./Task-style"
 
-const Task = () =>{
+const Task = (props) =>{
     return(
     <TaskStyle>
-        This is a Task
+        {props.task.content}
     </TaskStyle>
     )
 }

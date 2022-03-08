@@ -9,6 +9,9 @@ const TaskStyle = styled.div`
   width: 100%;
   font-size:1.5em;
   background: yellow;
+  border: solid;
+  border-width: 1px;
+  border-radius: 2px;
 `;
 
 export { TaskStyle };
