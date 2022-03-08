@@ -1,6 +1,12 @@
+import { TaskList } from "./List-style"
+import Task from "./Task"
+
 const List = () => {
     return(
-        <>This is List</>
+        <TaskList>
+            This is List
+            <Task/>
+        </TaskList>
     )
 }
 

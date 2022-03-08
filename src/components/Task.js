@@ -1,6 +1,10 @@
+import { TaskStyle } from "./Task-style"
+
 const Task = () =>{
     return(
-    <>This is Task</>
+    <TaskStyle>
+        This is Task
+    </TaskStyle>
     )
 }
 
