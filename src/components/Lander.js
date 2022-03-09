@@ -16,8 +16,7 @@ const Lander = () => {
       date: new Date().toISOString(),
       completed: false,
     };
-
-    setTasks(tasks.concat(newTask));
+    if (content) setTasks(tasks.concat(newTask));
   };
 
   return (
