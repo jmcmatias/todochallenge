@@ -6,9 +6,19 @@ import Simpleform from "./Simpleform";
 const Lander = () => {
   const [tasks, setTasks] = useState(testTasks);
 
-  const valueReceived = (value) => {
-      console.log("Value from Simpleform:",value)
-  }
+  const addNewTask = (content) => {
+    console.log("Value from Simpleform:", content);
+
+    const newTask = {
+      id: tasks.length,
+      type: "Task",
+      content: content,
+      date: new Date().toISOString(),
+      completed: false,
+    };
+
+    setTasks(tasks.concat(newTask));
+  };
 
   return (
     <Wrapper>
@@ -17,7 +27,7 @@ const Lander = () => {
         innerText={""}
         placeholder={"Type Your To-Do task here"}
         buttonName={"Create"}
-        inputValue={valueReceived}
+        inputValue={addNewTask}
       />
       <List tasksList={tasks} />
     </Wrapper>
