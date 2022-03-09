@@ -4,7 +4,6 @@ const FormStyle = styled.form`
   display: flex;
   flex-direction: row;
   padding: 0.5em;
-  
 `;
 
 const Input = styled.input`

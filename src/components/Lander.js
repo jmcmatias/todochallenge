@@ -31,7 +31,7 @@ const Lander = () => {
         />
       </Block>
       <Block>
-      <List tasksList={tasks} />
+        <List tasksList={tasks} />
       </Block>
     </Wrapper>
   );

@@ -1,11 +1,7 @@
-import { TaskStyle } from "./Task-style"
+import { TaskStyle } from "./Task-style";
 
-const Task = (props) =>{
-    return(
-    <TaskStyle>
-        {props.task.content}
-    </TaskStyle>
-    )
-}
+const Task = (props) => {
+  return <TaskStyle>{props.task.content}</TaskStyle>;
+};
 
-export default Task
+export default Task;

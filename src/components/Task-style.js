@@ -7,7 +7,7 @@ const TaskStyle = styled.div`
   align-content: flex-start;
   align-items: center;
   width: 100%;
-  font-size:1.5em;
+  font-size: 1.5em;
   background: yellow;
   border: solid;
   border-width: 1px;

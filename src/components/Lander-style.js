@@ -14,9 +14,7 @@ const Wrapper = styled.div`
 
 const Block = styled.div`
   padding: 0.5em;
-  margin: 0 1em 0 1em ;
-  
-
+  margin: 0 1em 0 1em;
 `;
 
 export { Wrapper, Block };
