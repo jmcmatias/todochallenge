@@ -1,11 +1,8 @@
-
-import './App.css';
-import Lander from './components/Lander';
+import "./App.css";
+import Lander from "./components/Lander";
 
 function App() {
-  return (
-    <Lander/>
-  );
+  return <Lander />;
 }
 
 export default App;
