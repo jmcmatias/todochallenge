@@ -14,8 +14,9 @@ const Lander = () => {
     <Wrapper>
       This is Lander
       <Simpleform
+        innerText={""}
         placeholder={"Type Your To-Do task here"}
-        buttonName="Create"
+        buttonName={"Create"}
         inputValue={valueReceived}
       />
       <List tasksList={tasks} />
