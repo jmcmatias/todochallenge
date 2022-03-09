@@ -6,10 +6,18 @@ import Simpleform from "./Simpleform";
 const Lander = () => {
   const [tasks, setTasks] = useState(testTasks);
 
+  const valueReceived = (value) => {
+      console.log("Value from Simpleform:",value)
+  }
+
   return (
     <Wrapper>
       This is Lander
-      <Simpleform/>
+      <Simpleform
+        placeholder={"Type Your To-Do task here"}
+        buttonName="Create"
+        inputValue={valueReceived}
+      />
       <List tasksList={tasks} />
     </Wrapper>
   );
