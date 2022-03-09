@@ -6,7 +6,10 @@ const List = (props) => {
     <TaskList>
       This is List
       {props.tasksList.map((task) => (
-        <Task key={task.id} task={task} />
+        <Task 
+        key={task.id} 
+        task={task}
+         />
       ))}
     </TaskList>
   );

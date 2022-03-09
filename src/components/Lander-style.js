@@ -12,5 +12,11 @@ const Wrapper = styled.div`
   background: orange;
 `;
 
+const Block = styled.div`
+  padding: 0.5em;
+  margin: 0 1em 0 1em ;
+  
 
-export {Wrapper}
+`;
+
+export { Wrapper, Block };

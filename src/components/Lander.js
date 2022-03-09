@@ -1,4 +1,4 @@
-import { Wrapper } from "./Lander-style";
+import { Wrapper, Block } from "./Lander-style";
 import { useState } from "react";
 import List from "./List";
 import testTasks from "../testTasks";
@@ -22,13 +22,17 @@ const Lander = () => {
   return (
     <Wrapper>
       This is Lander
-      <Simpleform
-        innerText={""}
-        placeholder={"Type Your To-Do task here"}
-        buttonName={"Create"}
-        inputValue={addNewTask}
-      />
+      <Block>
+        <Simpleform
+          innerText={""}
+          placeholder={"Type Your To-Do task here"}
+          buttonName={"Create"}
+          inputValue={addNewTask}
+        />
+      </Block>
+      <Block>
       <List tasksList={tasks} />
+      </Block>
     </Wrapper>
   );
 };
