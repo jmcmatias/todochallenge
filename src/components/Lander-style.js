@@ -17,4 +17,10 @@ const Block = styled.div`
   margin: 0 1em 0 1em;
 `;
 
-export { Wrapper, Block };
+const Hidecompleted = styled.div`
+  display: flex;
+  flex-direction: row;
+
+`;
+
+export { Wrapper, Block, Hidecompleted };
