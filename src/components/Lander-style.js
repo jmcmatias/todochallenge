@@ -20,7 +20,14 @@ const Block = styled.div`
 const Hidecompleted = styled.div`
   display: flex;
   flex-direction: row;
-
+  font-size: 1.1em;
 `;
 
-export { Wrapper, Block, Hidecompleted };
+const Dots = styled.div`
+  padding: 0px;
+  margin: 0px;
+  margin-left: 0.5em;
+  font-size: 1.5em;
+`;
+
+export { Wrapper, Block, Hidecompleted, Dots };

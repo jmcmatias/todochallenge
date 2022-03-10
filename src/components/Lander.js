@@ -1,10 +1,11 @@
-import { Wrapper, Block, Hidecompleted } from "./Lander-style";
+import { Wrapper, Block, Hidecompleted, Dots } from "./Lander-style";
 import { useEffect, useState } from "react";
 import List from "./List";
 import testTasks from "../testTasks";
 import Simpleform from "./Simpleform";
 const Lander = () => {
-  const [tasks, setTasks] = useState(testTasks);
+  //const [tasks, setTasks] = useState(testTasks);
+  const [tasks, setTasks] = useState([]);
   const [showAll, setShowall] = useState(true);
 
   const handleAddNewTask = (content) => {
@@ -31,7 +32,9 @@ const Lander = () => {
     setShowall(!showAll);
   };
 
-  const taskList = showAll ? tasks : tasks.filter((task) => task.completed === false)
+  const taskList = showAll
+    ? tasks
+    : tasks.filter((task) => task.completed === false);
 
   return (
     <Wrapper>
@@ -45,18 +48,27 @@ const Lander = () => {
         />
       </Block>
       <Block>
-        <List
-          tasksList={taskList}
-          onStatusChange={handleTaskStatusChange}
-        />
+        <List tasksList={taskList} onStatusChange={handleTaskStatusChange} />
+
+        <Dots>
+          <TasksHidden tasks={tasks} showAll={showAll} />
+        </Dots>
+
         <Hidecompleted>
-          
           Hide completed
           <input type="checkbox" onChange={handleHideCompleted}></input>
         </Hidecompleted>
       </Block>
     </Wrapper>
   );
+};
+
+const TasksHidden = ({ tasks, showAll }) => {
+  if (!showAll) {
+    if (tasks.filter((task) => task.completed === true).length > 0)
+      return "•••";
+  }
+  return "";
 };
 
 export default Lander;
