@@ -6,8 +6,8 @@ import Simpleform from "./Simpleform";
 const Lander = () => {
   const [tasks, setTasks] = useState(testTasks);
 
-  const addNewTask = (content) => {
-    console.log("Value from Simpleform:", content);
+  const handleAddNewTask = (content) => {
+    //console.log("Value from Simpleform:", content);
 
     const newTask = {
       id: tasks.length,
@@ -16,8 +16,15 @@ const Lander = () => {
       date: new Date().toISOString(),
       completed: false,
     };
-    if (content) setTasks(tasks.concat(newTask));
+    if (content) setTasks(tasks.concat(newTask));   // Insert new stask
   };
+
+  const handleTaskStatusChange = (task) =>{
+    task.completed=!task.completed
+    const tempTasks = tasks.slice()                 // creates a copy of tasks
+    tempTasks[tempTasks.indexOf(task)]=task         // Changes task status
+    setTasks(tempTasks)
+  }
 
   return (
     <Wrapper>
@@ -27,11 +34,11 @@ const Lander = () => {
           innerText={""}
           placeholder={"Type Your To-Do task here"}
           buttonName={"Create"}
-          inputValue={addNewTask}
+          inputValue={handleAddNewTask}
         />
       </Block>
       <Block>
-        <List tasksList={tasks} />
+        <List tasksList={tasks} onStatusChange={handleTaskStatusChange}/>
       </Block>
     </Wrapper>
   );

@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-const TaskList = styled.div`
+const TaskList = styled.ul`
 
   border-radius: 10px;
   padding: 0.5em;
