@@ -7,7 +7,6 @@ const List = (props) => {
     props.onStatusChange(task)
   }
 
-
   return (
     <TaskList>
       This is List
