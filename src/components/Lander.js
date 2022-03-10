@@ -1,11 +1,12 @@
+// Lander Component
 import { Wrapper, Block, Hidecompleted, Dots } from "./Lander-style";
 import { useEffect, useState } from "react";
 import List from "./List";
 import testTasks from "../testTasks";
 import Simpleform from "./Simpleform";
 const Lander = () => {
-  //const [tasks, setTasks] = useState(testTasks);
-  const [tasks, setTasks] = useState([]);
+  const [tasks, setTasks] = useState(testTasks);
+  //const [tasks, setTasks] = useState([]);
   const [showAll, setShowall] = useState(true);
 
   const handleAddNewTask = (content) => {
@@ -49,11 +50,9 @@ const Lander = () => {
       </Block>
       <Block>
         <List tasksList={taskList} onStatusChange={handleTaskStatusChange} />
-
         <Dots>
           <TasksHidden tasks={tasks} showAll={showAll} />
         </Dots>
-
         <Hidecompleted>
           Hide completed
           <input type="checkbox" onChange={handleHideCompleted}></input>
