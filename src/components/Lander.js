@@ -1,6 +1,6 @@
 // Lander Component
 import { Wrapper, Block, Hidecompleted, Dots } from "./Lander-style";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import List from "./List";
 import testTasks from "../testTasks";
 import Simpleform from "./Simpleform";
