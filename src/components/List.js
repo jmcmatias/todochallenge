@@ -18,7 +18,7 @@ const List = (props) => {
   return (
     <TaskList>
       <TitleStyle onClick={props.onSort}>
-        <Sorted sorted = {props.sorted}/>
+        <Sorted sorted={props.sorted} />
       </TitleStyle>
       {props.tasksList.map((task) => (
         <Task
@@ -34,10 +34,9 @@ const List = (props) => {
   );
 };
 
-const Sorted = ({sorted}) => {
-  if(sorted)
-    return <div title="Sort alphabetically">Task</div>
-  else return <div title="Sort by id">Task↓</div>  
-}
+const Sorted = ({ sorted }) => {
+  if (sorted) return <div title="Sort alphabetically">Task</div>;
+  else return <div title="Sort by id">Task↓</div>;
+};
 
 export default List;
