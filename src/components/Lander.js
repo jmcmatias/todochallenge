@@ -43,7 +43,7 @@ const Lander = () => {
 
   const saveTask = (task) => {
     const tempTasks = tasks.slice(); // creates a copy of tasks
-    tempTasks[tempTasks.indexOf(task)] = task; // Changes task status
+    tempTasks[tempTasks.indexOf(task)] = task; // Saves Task
     setTasks(tempTasks);
   };
  
