@@ -14,17 +14,13 @@ const handleEdit = () => {
 }
 
 const handleDelete =() => {
-  console.log("Task",props.task)
   props.onDelete(props.task.id)
 }
 
-
 const handleSubmit = (newContent) => {
-  console.log("New Content",newContent)
   props.onContentChange(props.task,newContent)
   setEditing(!editing)
 }
-
 
   return (
     <Item>
@@ -59,7 +55,7 @@ const Option = (props) => {
 };
 const Content = (props) => {
   if(!props.editing){
-    return <>ID:{props.task.id}->{props.task.content}</>  
+    return <>{props.task.content}</>  
   } else {
     return(
       <Simpleform innerText={props.task.content} buttonName={"save"} inputValue={props.inputValue}/>

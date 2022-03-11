@@ -8,7 +8,7 @@ const Lander = () => {
   const [tasks, setTasks] = useState(testTasks);
   //const [tasks, setTasks] = useState([]);
   const [showAll, setShowall] = useState(true);
-  const [sorted, setSorted] = useState(false);
+  const [sorted, setSorted] = useState(true);
 
   // New Task Logic
   const handleAddNewTask = (content) => {
@@ -66,13 +66,9 @@ const Lander = () => {
   // Sort Logic
   const handleSort = () => {
     setSorted(!sorted);
-    if (sorted) {
+    if (sorted)
       setTasks(tasks.sort((a, b) => a.content.localeCompare(b.content)));
-      console.log("sorted", tasks);
-    } else {
-      const sortedTasks = tasks.sort((a, b) => a.id - b.id);
-      console.log("sorted", sortedTasks);
-    }
+    else setTasks(tasks.sort((a, b) => a.id - b.id));
   };
 
   // Render
@@ -83,6 +79,7 @@ const Lander = () => {
         <Simpleform
           innerText={""}
           placeholder={"Type Your To-Do task here"}
+          s
           buttonName={"Create"}
           inputValue={handleAddNewTask}
         />
@@ -94,6 +91,7 @@ const Lander = () => {
           onContentChange={handleContentChange}
           onDelete={handleOnDelete}
           onSort={handleSort}
+          sorted={sorted}
         />
         <Dots>
           <TasksHidden tasks={tasks} showAll={showAll} />
