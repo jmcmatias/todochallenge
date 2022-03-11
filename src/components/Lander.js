@@ -46,6 +46,12 @@ const Lander = () => {
     tempTasks[tempTasks.indexOf(task)] = task; // Saves Task
     setTasks(tempTasks);
   };
+
+  const handleOnDelete = (id) => {
+    console.log("delete",id)
+    const tempTasks = tasks.filter((task) => task.id!=id); // creates a copy of tasks
+    setTasks(tempTasks)
+  }
  
 // Render
   return (
@@ -64,6 +70,7 @@ const Lander = () => {
           tasksList={taskList}
           onStatusChange={handleTaskStatusChange}
           onContentChange={handleContentChange}
+          onDelete={handleOnDelete}
         />
         <Dots>
           <TasksHidden tasks={tasks} showAll={showAll} />

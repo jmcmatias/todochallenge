@@ -13,6 +13,12 @@ const handleEdit = () => {
   setEditing(!editing)
 }
 
+const handleDelete =() => {
+  console.log("Task",props.task)
+  props.onDelete(props.task.id)
+}
+
+
 const handleSubmit = (newContent) => {
   console.log("New Content",newContent)
   props.onContentChange(props.task,newContent)
@@ -31,7 +37,7 @@ const handleSubmit = (newContent) => {
         <Options>
           <Option optionName={"Edit"} onClick={handleEdit}/>
           |
-          <Option optionName={"Delete"} />
+          <Option optionName={"Delete"} onClick={handleDelete}/>
         </Options>
       </TaskStyle>
     </Item>
