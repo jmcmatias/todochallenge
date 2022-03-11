@@ -19,7 +19,6 @@ const Block = styled.div`
 `;
 
 const Hidecompleted = styled.div`
-  height: 100%;
   display: flex;
   flex-direction: row;
   font-size: 1.1em;
