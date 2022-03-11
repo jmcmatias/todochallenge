@@ -9,9 +9,11 @@ const Lander = () => {
   //const [tasks, setTasks] = useState([]);
   const [showAll, setShowall] = useState(true);
 
+  // New Task Logic
   const handleAddNewTask = (content) => {
+    const setId = () => (tasks.length > 0 ? maxTaskId(tasks) + 1 : 0);
     const newTask = {
-      id: tasks.length,
+      id: setId(),
       type: "Task",
       content: content,
       date: new Date().toISOString(),
@@ -22,12 +24,31 @@ const Lander = () => {
     }
   };
 
+  const maxTaskId = (tasks) => Math.max.apply(null,tasks.map((task) => task.id));
+
+  // Tasks editing logic
   const handleTaskStatusChange = (task) => {
     task.completed = !task.completed;
+    saveTask(task);
+  };
+
+  const handleContentChange = (task, newContent) => {
+    task.content = newContent;
+    saveTask(task);
+  };
+
+  const saveTask = (task) => {
     const tempTasks = tasks.slice(); // creates a copy of tasks
-    tempTasks[tempTasks.indexOf(task)] = task; // Changes task status
+    tempTasks[tempTasks.indexOf(task)] = task; // Saves Task
     setTasks(tempTasks);
   };
+
+  const handleOnDelete = (id) => {
+    const tempTasks = tasks.filter((task) => task.id != id);  // creates a copy of tasks except the one with the id received
+    setTasks(tempTasks);
+  };
+
+  // Hide Complete task Logic
 
   const handleHideCompleted = (e) => {
     setShowall(!showAll);
@@ -37,6 +58,7 @@ const Lander = () => {
     ? tasks
     : tasks.filter((task) => task.completed === false);
 
+  // Render
   return (
     <Wrapper>
       This is Lander
@@ -49,7 +71,12 @@ const Lander = () => {
         />
       </Block>
       <Block>
-        <List tasksList={taskList} onStatusChange={handleTaskStatusChange} />
+        <List
+          tasksList={taskList}
+          onStatusChange={handleTaskStatusChange}
+          onContentChange={handleContentChange}
+          onDelete={handleOnDelete}
+        />
         <Dots>
           <TasksHidden tasks={tasks} showAll={showAll} />
         </Dots>
@@ -64,9 +91,11 @@ const Lander = () => {
 
 const TasksHidden = ({ tasks, showAll }) => {
   if (!showAll) {
-    if (tasks.filter((task) => task.completed === true).length > 0){
-      const tasksCompleted = tasks.filter((task) => task.completed === true).length
-      return "•• "+tasksCompleted+" tasks completed ••";
+    if (tasks.filter((task) => task.completed === true).length > 0) {
+      const tasksCompleted = tasks.filter(
+        (task) => task.completed === true
+      ).length;
+      return "•• " + tasksCompleted + " tasks completed ••";
     }
   }
   return "";
