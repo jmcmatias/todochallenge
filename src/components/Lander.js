@@ -9,9 +9,11 @@ const Lander = () => {
   //const [tasks, setTasks] = useState([]);
   const [showAll, setShowall] = useState(true);
 
+  // New Task Logic
   const handleAddNewTask = (content) => {
+    const setId = () => (tasks.length > 0 ? maxTaskId(tasks) + 1 : 0);
     const newTask = {
-      id: tasks.length,
+      id: setId(),
       type: "Task",
       content: content,
       date: new Date().toISOString(),
@@ -22,15 +24,13 @@ const Lander = () => {
     }
   };
 
-  const handleHideCompleted = (e) => {
-    setShowall(!showAll);
-  };
+  const maxTaskId = (tasks) =>
+    Math.max.apply(
+      null,
+      tasks.map((task) => task.id)
+    );
 
-  const taskList = showAll
-    ? tasks
-    : tasks.filter((task) => task.completed === false);
-
-// Tasks editing logic
+  // Tasks editing logic
   const handleTaskStatusChange = (task) => {
     task.completed = !task.completed;
     saveTask(task);
@@ -48,12 +48,21 @@ const Lander = () => {
   };
 
   const handleOnDelete = (id) => {
-    console.log("delete",id)
-    const tempTasks = tasks.filter((task) => task.id!=id); // creates a copy of tasks
-    setTasks(tempTasks)
-  }
- 
-// Render
+    const tempTasks = tasks.filter((task) => task.id != id);  // creates a copy of tasks except the one with the id received
+    setTasks(tempTasks);
+  };
+
+  // Hide Complete task Logic
+
+  const handleHideCompleted = (e) => {
+    setShowall(!showAll);
+  };
+
+  const taskList = showAll
+    ? tasks
+    : tasks.filter((task) => task.completed === false);
+
+  // Render
   return (
     <Wrapper>
       This is Lander
