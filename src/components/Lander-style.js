@@ -4,12 +4,13 @@ const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  border-radius: 10px;
   padding: 0.5em;
   max-width: 1024px;
   min-width: 480px;
   min-height: 640px;
-  background: orange;
+  background-color: #e3efe8;
+  background-image: linear-gradient(315deg, #e3efe8 0%, #96a7cf 74%);
+  ;
 `;
 
 const Block = styled.div`
@@ -18,9 +19,12 @@ const Block = styled.div`
 `;
 
 const Hidecompleted = styled.div`
+  height: 100%;
   display: flex;
   flex-direction: row;
   font-size: 1.1em;
+  margin: 1em;
+  margin-top:auto;
 `;
 
 const Dots = styled.div`

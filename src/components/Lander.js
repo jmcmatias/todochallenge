@@ -4,6 +4,8 @@ import { useState } from "react";
 import List from "./List";
 import testTasks from "../testTasks";
 import Simpleform from "./Simpleform";
+import Header from "./Header"
+
 const Lander = () => {
   const [tasks, setTasks] = useState(testTasks);
   //const [tasks, setTasks] = useState([]);
@@ -74,7 +76,7 @@ const Lander = () => {
   // Render
   return (
     <Wrapper>
-      This is Lander
+      <Header/>
       <Block>
         <Simpleform
           innerText={""}
@@ -96,11 +98,11 @@ const Lander = () => {
         <Dots>
           <TasksHidden tasks={tasks} showAll={showAll} />
         </Dots>
-        <Hidecompleted>
-          Hide completed
-          <input type="checkbox" onChange={handleHideCompleted}></input>
-        </Hidecompleted>
       </Block>
+      <Hidecompleted>
+        Hide completed
+        <input type="checkbox" onChange={handleHideCompleted}></input>
+      </Hidecompleted>
     </Wrapper>
   );
 };
