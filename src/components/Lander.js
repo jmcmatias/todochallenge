@@ -8,6 +8,7 @@ const Lander = () => {
   const [tasks, setTasks] = useState(testTasks);
   //const [tasks, setTasks] = useState([]);
   const [showAll, setShowall] = useState(true);
+  const [sorted, setSorted] = useState(false);
 
   // New Task Logic
   const handleAddNewTask = (content) => {
@@ -24,7 +25,11 @@ const Lander = () => {
     }
   };
 
-  const maxTaskId = (tasks) => Math.max.apply(null,tasks.map((task) => task.id));
+  const maxTaskId = (tasks) =>
+    Math.max.apply(
+      null,
+      tasks.map((task) => task.id)
+    );
 
   // Tasks editing logic
   const handleTaskStatusChange = (task) => {
@@ -44,7 +49,7 @@ const Lander = () => {
   };
 
   const handleOnDelete = (id) => {
-    const tempTasks = tasks.filter((task) => task.id != id);  // creates a copy of tasks except the one with the id received
+    const tempTasks = tasks.filter((task) => task.id != id); // creates a copy of tasks except the one with the id received
     setTasks(tempTasks);
   };
 
@@ -57,6 +62,18 @@ const Lander = () => {
   const taskList = showAll
     ? tasks
     : tasks.filter((task) => task.completed === false);
+
+  // Sort Logic
+  const handleSort = () => {
+    setSorted(!sorted);
+    if (sorted) {
+      setTasks(tasks.sort((a, b) => a.content.localeCompare(b.content)));
+      console.log("sorted", tasks);
+    } else {
+      const sortedTasks = tasks.sort((a, b) => a.id - b.id);
+      console.log("sorted", sortedTasks);
+    }
+  };
 
   // Render
   return (
@@ -76,6 +93,7 @@ const Lander = () => {
           onStatusChange={handleTaskStatusChange}
           onContentChange={handleContentChange}
           onDelete={handleOnDelete}
+          onSort={handleSort}
         />
         <Dots>
           <TasksHidden tasks={tasks} showAll={showAll} />

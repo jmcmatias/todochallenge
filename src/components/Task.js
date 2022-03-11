@@ -59,7 +59,7 @@ const Option = (props) => {
 };
 const Content = (props) => {
   if(!props.editing){
-    return <>{props.task.content}</>  
+    return <>ID:{props.task.id}->{props.task.content}</>  
   } else {
     return(
       <Simpleform innerText={props.task.content} buttonName={"save"} inputValue={props.inputValue}/>
