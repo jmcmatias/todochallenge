@@ -18,7 +18,7 @@ const testTasks = [
   {
     id: 2,
     type: "Task",
-    content: "Drink Coffee",
+    content: "A coder Drink Coffee",
     date: "2019-05-30T19:20:14.298Z",
     completed: false,
   },
@@ -28,6 +28,13 @@ const testTasks = [
     content: "Go shopping Boy",
     date: "2019-05-30T19:20:14.298Z",
     completed: true,
+  },
+  {
+    id: 4,
+    type: "Task",
+    content: "Bang Bang",
+    date: "2019-05-30T19:20:14.298Z",
+    completed: false,
   },
 ];
 

@@ -14,17 +14,13 @@ const handleEdit = () => {
 }
 
 const handleDelete =() => {
-  console.log("Task",props.task)
   props.onDelete(props.task.id)
 }
 
-
 const handleSubmit = (newContent) => {
-  console.log("New Content",newContent)
   props.onContentChange(props.task,newContent)
   setEditing(!editing)
 }
-
 
   return (
     <Item>
