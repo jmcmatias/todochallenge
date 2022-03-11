@@ -7,6 +7,10 @@ const List = (props) => {
     props.onStatusChange(task)
   }
 
+  const handleContentChange = (task,newContent) => {
+    props.onContentChange(task,newContent)
+  }
+
   return (
     <TaskList>
       This is List
@@ -16,6 +20,7 @@ const List = (props) => {
         task={task}
         taskStatus={task.completed}
         onStatusChange={handleStatusChange}
+        onContentChange={handleContentChange}
          />
       ))}
     </TaskList>

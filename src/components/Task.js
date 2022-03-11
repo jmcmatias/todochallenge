@@ -15,6 +15,7 @@ const handleEdit = () => {
 
 const handleSubmit = (newContent) => {
   console.log("New Content",newContent)
+  props.onContentChange(props.task,newContent)
   setEditing(!editing)
 }
 
@@ -26,7 +27,7 @@ const handleSubmit = (newContent) => {
         onChange={handleStatusChange}
       ></Checkbox>
       <TaskStyle>
-        <Content editing={editing} task={props.task} inputValue={handleSubmit}/>  
+        <Content editing={editing} task={props.task} inputValue={handleSubmit} />  
         <Options>
           <Option optionName={"Edit"} onClick={handleEdit}/>
           |

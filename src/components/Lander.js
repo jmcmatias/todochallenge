@@ -22,13 +22,6 @@ const Lander = () => {
     }
   };
 
-  const handleTaskStatusChange = (task) => {
-    task.completed = !task.completed;
-    const tempTasks = tasks.slice(); // creates a copy of tasks
-    tempTasks[tempTasks.indexOf(task)] = task; // Changes task status
-    setTasks(tempTasks);
-  };
-
   const handleHideCompleted = (e) => {
     setShowall(!showAll);
   };
@@ -37,6 +30,24 @@ const Lander = () => {
     ? tasks
     : tasks.filter((task) => task.completed === false);
 
+// Tasks editing logic
+  const handleTaskStatusChange = (task) => {
+    task.completed = !task.completed;
+    saveTask(task);
+  };
+
+  const handleContentChange = (task, newContent) => {
+    task.content = newContent;
+    saveTask(task);
+  };
+
+  const saveTask = (task) => {
+    const tempTasks = tasks.slice(); // creates a copy of tasks
+    tempTasks[tempTasks.indexOf(task)] = task; // Changes task status
+    setTasks(tempTasks);
+  };
+ 
+// Render
   return (
     <Wrapper>
       This is Lander
@@ -49,7 +60,11 @@ const Lander = () => {
         />
       </Block>
       <Block>
-        <List tasksList={taskList} onStatusChange={handleTaskStatusChange} />
+        <List
+          tasksList={taskList}
+          onStatusChange={handleTaskStatusChange}
+          onContentChange={handleContentChange}
+        />
         <Dots>
           <TasksHidden tasks={tasks} showAll={showAll} />
         </Dots>
@@ -64,9 +79,11 @@ const Lander = () => {
 
 const TasksHidden = ({ tasks, showAll }) => {
   if (!showAll) {
-    if (tasks.filter((task) => task.completed === true).length > 0){
-      const tasksCompleted = tasks.filter((task) => task.completed === true).length
-      return "•• "+tasksCompleted+" tasks completed ••";
+    if (tasks.filter((task) => task.completed === true).length > 0) {
+      const tasksCompleted = tasks.filter(
+        (task) => task.completed === true
+      ).length;
+      return "•• " + tasksCompleted + " tasks completed ••";
     }
   }
   return "";
