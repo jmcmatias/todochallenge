@@ -27,7 +27,7 @@ const Dots = styled.div`
   padding: 0px;
   margin: 0px;
   margin-left: 0.5em;
-  font-size: 1.5em;
+  font-size: 1em;
 `;
 
 export { Wrapper, Block, Hidecompleted, Dots };

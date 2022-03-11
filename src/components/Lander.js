@@ -64,8 +64,10 @@ const Lander = () => {
 
 const TasksHidden = ({ tasks, showAll }) => {
   if (!showAll) {
-    if (tasks.filter((task) => task.completed === true).length > 0)
-      return "•••";
+    if (tasks.filter((task) => task.completed === true).length > 0){
+      const tasksCompleted = tasks.filter((task) => task.completed === true).length
+      return "•• "+tasksCompleted+" tasks completed ••";
+    }
   }
   return "";
 };
