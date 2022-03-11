@@ -6,11 +6,11 @@ const Wrapper = styled.div`
   justify-content: flex-start;
   padding: 0.5em;
   max-width: 1024px;
-  min-width: 480px;
+  min-width: 50%;
   min-height: 640px;
   background-color: #e3efe8;
   background-image: linear-gradient(315deg, #e3efe8 0%, #96a7cf 74%);
-  ;
+  
 `;
 
 const Block = styled.div`
