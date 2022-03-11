@@ -24,11 +24,7 @@ const Lander = () => {
     }
   };
 
-  const maxTaskId = (tasks) =>
-    Math.max.apply(
-      null,
-      tasks.map((task) => task.id)
-    );
+  const maxTaskId = (tasks) => Math.max.apply(null,tasks.map((task) => task.id));
 
   // Tasks editing logic
   const handleTaskStatusChange = (task) => {
