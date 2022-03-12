@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import { keyframes } from "styled-components";
 import { color1, insetShadow } from "../App-style";
 
 const Item = styled.li`

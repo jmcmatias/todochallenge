@@ -1,4 +1,4 @@
-import { TaskList, TitleStyle } from "./List-style";
+import { TaskList, TitleStyle, ListMap } from "./List-style";
 import Task from "./Task";
 
 const List = (props) => {
@@ -20,16 +20,18 @@ const List = (props) => {
       <TitleStyle onClick={props.onSort}>
         <Sorted sorted={props.sorted} />
       </TitleStyle>
-      {props.tasksList.map((task) => (
-        <Task
-          key={task.id}
-          task={task}
-          taskStatus={task.completed}
-          onStatusChange={handleStatusChange}
-          onContentChange={handleContentChange}
-          onDelete={handleOnDelete}
-        />
-      ))}
+      <ListMap>
+        {props.tasksList.map((task) => (
+          <Task
+            key={task.id}
+            task={task}
+            taskStatus={task.completed}
+            onStatusChange={handleStatusChange}
+            onContentChange={handleContentChange}
+            onDelete={handleOnDelete}
+          />
+        ))}
+      </ListMap>
     </TaskList>
   );
 };
