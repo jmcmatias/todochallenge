@@ -18,7 +18,6 @@ function App() {
 
   return (
     <AppStyle windowHeight={appHeight}>
-      {windowHeight}
       <Lander/>
     </AppStyle>
   );

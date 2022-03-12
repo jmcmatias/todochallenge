@@ -5,11 +5,10 @@ const Wrapper = styled.div`
   flex-direction: column;
   justify-content: flex-start;
   padding: 0.5em;
-  max-width: 1024px;
-  min-width: 50%;
-  min-height: 640px;
+  width: 720px;
   background-color: #e3efe8;
   background-image: linear-gradient(315deg, #e3efe8 0%, #96a7cf 74%);
+  
   
 `;
 

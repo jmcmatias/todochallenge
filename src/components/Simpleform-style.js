@@ -1,32 +1,33 @@
 import styled from "styled-components";
+import { color1,color2 } from "../App-style";
 
 const FormStyle = styled.form`
   display: flex;
   flex-direction: row;
-  padding: 0.5em;
+  margin: 1em 0em 1em 0em;
 `;
 
 const Input = styled.input`
-  background: #f5f7f6;
+  background: ${color2};
   border: none;
   width: 100%;
   &:focus{
     outline: none;
-    box-shadow: inset 0px 0px 3px #5ca0f2;
-    -webkit-box-shadow: inset 0px 0px 3px #5ca0f2;
-    -moz-box-shadow: inset 0px 0px 3px #5ca0f2;
+    box-shadow: inset 0px 0px 3px ${color1};
+    -webkit-box-shadow: inset 0px 0px 3px ${color1};
+    -moz-box-shadow: inset 0px 0px 3px ${color1};
   }
 `;
 
 const Button = styled.button`
   padding: 0.5em;
   border: none;
-  background-color: #5ca0f2;
+  background-color: ${color1};
   color:#000;
   cursor: pointer;
 
   &:hover {
-    background: linear-gradient(90deg, #f5f7f6, #5ca0f2);
+    background: linear-gradient(90deg, ${color2}, ${color1});
     background-size: 400% 400%;
 
     -webkit-animation: buttonHover 3s ease infinite;

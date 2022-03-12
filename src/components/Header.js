@@ -1,9 +1,12 @@
-import { Logo } from "./Header-style";
+import { HeaderStyle, Applogo } from "./Header-style";
+import LogoImage from "../logo.png"
 
 const Header = () => {
   return (
-  <Logo />
-    )
+    <HeaderStyle>
+      <Applogo src={LogoImage}/>
+    </HeaderStyle>
+  );
 };
 
 export default Header;
