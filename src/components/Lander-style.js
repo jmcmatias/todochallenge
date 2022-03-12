@@ -12,8 +12,8 @@ const Wrapper = styled.div`
   
 `;
 
-const Block = styled.div`
-  padding: 0.5em;
+const Block = styled.section`
+  padding: 0 0.5em 0 0.5em;
   margin: 0 1em 0 1em;
 `;
 
