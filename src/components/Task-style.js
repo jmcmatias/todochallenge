@@ -6,7 +6,7 @@ const Item = styled.li`
   flex-direction: row;
   align-items: center;
   margin-top: 0.3em;
-  padding: 0.4em 0em 0.4em 1em;
+  padding: 0.4em 0em 0.4em 0.4em;
   list-style-type: none;
   background-color: #c3cbdc;
   background-image: linear-gradient(147deg, #c3cbdc 0%, #edf1f4 74%);
@@ -19,7 +19,6 @@ const TaskStyle = styled.div`
   align-items: center;
   width: 100%;
   font-size: 1em;
-  padding: 0em 0.5em 0em 0.5em;
 `;
 
 const TaskStatus = styled.input`
@@ -32,7 +31,13 @@ const TaskStatus = styled.input`
     cursor: pointer;
   }
 `;
+const Contentwrapper=styled.div`
+
+`;
+
 const Options = styled.div`
+white-space: nowrap;
+  display:flex;
   margin-left: auto;
 `;
 
@@ -46,4 +51,4 @@ const Link = styled.button`
   }
 `;
 
-export { TaskStyle, Item, TaskStatus, Options, Link };
+export { TaskStyle, Item, TaskStatus,Contentwrapper, Options, Link };
