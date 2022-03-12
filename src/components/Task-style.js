@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { keyframes } from "styled-components";
 import { color1, insetShadow } from "../App-style";
 
 const Item = styled.li`
@@ -32,13 +33,15 @@ const TaskStatus = styled.input`
   }
 `;
 const Contentwrapper=styled.div`
-
+padding-left:0.3em;
+width:65%;
+word-wrap: break-word;
 `;
 
 const Options = styled.div`
-white-space: nowrap;
   display:flex;
   margin-left: auto;
+  
 `;
 
 const Link = styled.button`
