@@ -8,8 +8,6 @@ const Wrapper = styled.div`
   width: 720px;
   background-color: #e3efe8;
   background-image: linear-gradient(315deg, #e3efe8 0%, #96a7cf 74%);
-  
-  
 `;
 
 const Block = styled.section`
@@ -22,7 +20,7 @@ const Hidecompleted = styled.div`
   flex-direction: row;
   font-size: 1.1em;
   margin: 1em;
-  margin-top:auto;
+  margin-top: auto;
 `;
 
 const Dots = styled.div`

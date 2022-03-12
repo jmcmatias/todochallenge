@@ -9,4 +9,6 @@ justify-content: center;
 const color1 = '#5ca0f2';
 const color2 = '#f5f7f6';
 
-export {AppStyle, color1, color2}
+const insetShadow = 'inset 0px 0px 2px 3px #5ca0f2'
+
+export {AppStyle, color1, color2, insetShadow}

@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { color1,color2 } from "../App-style";
+import { color1, color2, insetShadow } from "../App-style";
 
 const FormStyle = styled.form`
   display: flex;
@@ -11,11 +11,13 @@ const Input = styled.input`
   background: ${color2};
   border: none;
   width: 100%;
-  &:focus{
+  padding: 5px;
+  font-size:1em;
+  &:focus {
     outline: none;
-    box-shadow: inset 0px 0px 3px ${color1};
-    -webkit-box-shadow: inset 0px 0px 3px ${color1};
-    -moz-box-shadow: inset 0px 0px 3px ${color1};
+    box-shadow: ${insetShadow};
+    -webkit-box-shadow: ${insetShadow};
+    -moz-box-shadow: ${insetShadow};
   }
 `;
 

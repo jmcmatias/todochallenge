@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { color1 } from "../App-style";
+import { color1, insetShadow } from "../App-style";
 
 const Item = styled.li`
   display: flex;
@@ -18,15 +18,19 @@ const TaskStyle = styled.div`
   flex-direction: row;
   align-items: center;
   width: 100%;
-  font-size: 1.2em;
+  font-size: 1em;
   padding: 0em 0.5em 0em 0.5em;
-
 `;
 
 const TaskStatus = styled.input`
-
   width: 2.5em;
   height: 2.5em;
+  &:hover {
+    box-shadow: ${insetShadow};
+    -webkit-box-shadow: ${insetShadow};
+    -moz-box-shadow: ${insetShadow};
+    cursor: pointer;
+  }
 `;
 const Options = styled.div`
   margin-left: auto;
@@ -35,7 +39,7 @@ const Options = styled.div`
 const Link = styled.button`
   background: none;
   border: none;
-  font-size: 0.7em;
+  font-size: 1em;
   &:hover {
     color: ${color1};
     cursor: pointer;
