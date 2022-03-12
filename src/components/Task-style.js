@@ -1,30 +1,36 @@
 import styled from "styled-components";
+import { color1, insetShadow } from "../App-style";
 
 const Item = styled.li`
   display: flex;
   flex-direction: row;
-  justify-content: flex-start;
-  align-content: flex-start;
   align-items: center;
-  background: green;
-  border: solid;
-  border-width: 1px;
-  border-radius: 2px;
-  padding: 1em 0em 1em 1em;
+  margin-top: 0.3em;
+  padding: 0.4em 0em 0.4em 1em;
   list-style-type: none;
+  background-color: #c3cbdc;
+  background-image: linear-gradient(147deg, #c3cbdc 0%, #edf1f4 74%);
+  box-shadow: 2px 2px 3px 0px gray;
 `;
 
 const TaskStyle = styled.div`
   display: flex;
   flex-direction: row;
+  align-items: center;
   width: 100%;
-  font-size: 1.5em;
-  padding: 0em 1em 0em 1em;
+  font-size: 1em;
+  padding: 0em 0.5em 0em 0.5em;
 `;
 
 const TaskStatus = styled.input`
   width: 2.5em;
   height: 2.5em;
+  &:hover {
+    box-shadow: ${insetShadow};
+    -webkit-box-shadow: ${insetShadow};
+    -moz-box-shadow: ${insetShadow};
+    cursor: pointer;
+  }
 `;
 const Options = styled.div`
   margin-left: auto;
@@ -33,9 +39,9 @@ const Options = styled.div`
 const Link = styled.button`
   background: none;
   border: none;
-  font-size: 0.7em;
+  font-size: 1em;
   &:hover {
-    color: blue;
+    color: ${color1};
     cursor: pointer;
   }
 `;

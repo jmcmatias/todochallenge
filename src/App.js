@@ -1,8 +1,28 @@
-import "./App.css";
+import { useState } from "react";
+import { AppStyle } from "./App-style";
 import Lander from "./components/Lander";
 
 function App() {
-  return <Lander />;
+  const windowHeight = window.innerHeight
+  const [appHeight,setHeight]=useState(windowHeight)
+  
+
+  window.addEventListener('resize', function() {
+    // viewport and full window dimensions will change
+
+    const windowHeight = window.innerHeight;
+
+    setHeight(windowHeight)
+  });
+
+
+  return (
+    <AppStyle windowHeight={appHeight}>
+      <Lander/>
+    </AppStyle>
+  );
 }
+
+
 
 export default App;

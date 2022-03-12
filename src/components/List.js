@@ -35,8 +35,8 @@ const List = (props) => {
 };
 
 const Sorted = ({ sorted }) => {
-  if (sorted) return <div title="Sort alphabetically">Task</div>;
-  else return <div title="Sort by id">Task↓</div>;
+  if (sorted) return <div title="Sort alphabetically">Tasks</div>;
+  else return <div title="Sort by id">Tasks ↓</div>;
 };
 
 export default List;
