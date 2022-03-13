@@ -2,19 +2,18 @@
 import { Wrapper, Block, Hidecompleted, Dots } from "./Lander-style";
 import { useState } from "react";
 import List from "./List";
-import testTasks from "../testTasks";
+import TasksProvider from "../providers/TasksProvider";
 import Simpleform from "./Simpleform";
 import Header from "./Header"
 
 const Lander = () => {
-  const [tasks, setTasks] = useState(testTasks);
+ 
   //const [tasks, setTasks] = useState([]);
   const [showAll, setShowall] = useState(true);
   const [sorted, setSorted] = useState(true);
 
-
-  console.log(tasks)
-  // New Task Logic
+/*
+   // New Task Logic
   const handleAddNewTask = (content) => {
     const setId = () => (tasks.length > 0 ? maxTaskId(tasks) + 1 : 0);
     const newTask = {
@@ -74,7 +73,7 @@ const Lander = () => {
       setTasks(tasks.sort((a, b) => a.content.localeCompare(b.content)));
     else setTasks(tasks.sort((a, b) => a.id - b.id));
   };
-
+*/
   // Render
   return (
     <Wrapper>
@@ -85,25 +84,26 @@ const Lander = () => {
           placeholder={"Type Your To-Do task here"}
           s
           buttonName={"Create"}
-          inputValue={handleAddNewTask}
+          //inputValue={handleAddNewTask}
         />
       </Block>
       <Block>
+        <TasksProvider>
         <List
-          tasksList={taskList}
-          onStatusChange={handleTaskStatusChange}
-          onContentChange={handleContentChange}
-          onDelete={handleOnDelete}
-          onSort={handleSort}
-          sorted={sorted}
+          //tasksList={taskList}
+          //onStatusChange={handleTaskStatusChange}
+          //onContentChange={handleContentChange}
+          //onDelete={handleOnDelete}
+          //onSort={handleSort}
+          //sorted={sorted}
         />
+        </TasksProvider>
         <Dots>
-          <TasksHidden tasks={tasks} showAll={showAll} />
-        </Dots>
+            </Dots>
       </Block>
       <Hidecompleted>
         Hide completed
-        <input type="checkbox" onChange={handleHideCompleted}></input>
+        <input type="checkbox" ></input>
       </Hidecompleted>
     </Wrapper>
   );
