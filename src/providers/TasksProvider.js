@@ -28,6 +28,7 @@ const TasksProvider = ({ children }) => {
 
  // Tasks editing logic
  const taskStatusChange = (task) => {
+     console.log("Status Change")
     task.completed = !task.completed;
     saveTask(task);
   };
@@ -42,13 +43,22 @@ const TasksProvider = ({ children }) => {
     tempTasks[tempTasks.indexOf(task)] = task; // Saves Task
     setTaskList(tempTasks);
   };
-  
+   // Hide Complete task Logic
+
+   const hideCompleted = (e) => {
+    setShowall(!showAll);
+  };
+
+  const tasksToShow = showAll
+  ? taskList
+  : taskList.filter((task) => task.completed === false);
 
   const contextValue = {
-    taskList,
+    tasksToShow,
     addNewTask,
     taskStatusChange,
     contentChange,
+    hideCompleted,
   };
 
   return (

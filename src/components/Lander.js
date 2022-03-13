@@ -7,14 +7,15 @@ import Header from "./Header";
 import { useTaskListContext } from "../providers/TasksProvider";
 
 const Lander = () => {
-  const { addNewTask } = useTaskListContext();
-
-  //const [tasks, setTasks] = useState([]);
-
+  const { addNewTask, hideCompleted } = useTaskListContext();
 
   const handleAddNewTask = (content) => {
     addNewTask(content);
   };
+
+  const handleHideCompletedTasks = () => {
+    hideCompleted();
+  }
 
   /*
   
@@ -25,15 +26,7 @@ const Lander = () => {
     setTasks(tempTasks);
   };
 
-  // Hide Complete task Logic
-
-  const handleHideCompleted = (e) => {
-    setShowall(!showAll);
-  };
-
-  const taskList = showAll
-    ? tasks
-    : tasks.filter((task) => task.completed === false);
+ 
 
   // Sort Logic
   const handleSort = () => {
@@ -73,7 +66,7 @@ const Lander = () => {
       </Block>
       <Hidecompleted>
         Hide completed
-        <input type="checkbox"></input>
+        <input type="checkbox" onChange={handleHideCompletedTasks}></input>
       </Hidecompleted>
     </Wrapper>
   );

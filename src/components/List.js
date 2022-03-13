@@ -3,7 +3,7 @@ import { TaskList, TitleStyle, ListMap } from "./List-style";
 import Task from "./Task";
 
 const List = (props) => {
-  const { taskList } = useTaskListContext();
+  const { tasksToShow, } = useTaskListContext();
 
 
   const handleStatusChange = (task) => {
@@ -25,14 +25,14 @@ const List = (props) => {
         <Sorted sorted={props.sorted} />
       </TitleStyle>
       <ListMap>
-        {taskList.map((task) => (
+        {tasksToShow.map((task) => (
           <Task
             key={task.id}
             task={task}
             taskStatus={task.completed}
-            //onStatusChange={handleStatusChange}
-            //onContentChange={handleContentChange}
-            //onDelete={handleOnDelete}
+            onStatusChange={handleStatusChange}
+            onContentChange={handleContentChange}
+            onDelete={handleOnDelete}
           />
         ))}
       </ListMap>
