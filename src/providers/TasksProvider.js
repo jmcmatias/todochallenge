@@ -28,12 +28,11 @@ const TasksProvider = ({ children }) => {
 
  // Tasks editing logic
  const taskStatusChange = (task) => {
-     console.log("Status Change")
     task.completed = !task.completed;
     saveTask(task);
   };
 
-  const contentChange = (task, newContent) => {
+  const taskContentChange = (task, newContent) => {
     task.content = newContent;
     saveTask(task);
   };
@@ -43,6 +42,13 @@ const TasksProvider = ({ children }) => {
     tempTasks[tempTasks.indexOf(task)] = task; // Saves Task
     setTaskList(tempTasks);
   };
+
+  // Delete Logic
+  const deleteTask = (id) => {
+    const tempTasks = taskList.filter((task) => task.id != id); // creates a copy of tasks except the one with the id received
+    setTaskList(tempTasks);
+  };
+
    // Hide Complete task Logic
 
    const hideCompleted = (e) => {
@@ -53,14 +59,25 @@ const TasksProvider = ({ children }) => {
   ? taskList
   : taskList.filter((task) => task.completed === false);
 
+   // Sort Logic
+   const alphaSort = () => {
+    setSorted(!sorted);
+    if (sorted)
+      setTaskList(taskList.sort((a, b) => a.content.localeCompare(b.content)));
+    else setTaskList(taskList.sort((a, b) => a.id - b.id));
+  };
+
   const contextValue = {
     taskList,
     tasksToShow,
     showAll,
+    sorted,
     addNewTask,
     taskStatusChange,
-    contentChange,
+    taskContentChange,
+    deleteTask,
     hideCompleted,
+    alphaSort,
   };
 
   return (

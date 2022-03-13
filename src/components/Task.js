@@ -11,7 +11,7 @@ import { useState } from "react";
 import { useTaskListContext } from "../providers/TasksProvider";
 
 const Task = (props) => {
-  const { taskStatusChange, contentChange } = useTaskListContext()
+  const { taskStatusChange, taskContentChange, deleteTask } = useTaskListContext()
   const [editing, setEditing] = useState(false);
 
 
@@ -24,11 +24,11 @@ const Task = (props) => {
   };
 
   const handleDelete = () => {
-    props.onDelete(props.task.id);
+    deleteTask(props.task.id);
   };
 
   const handleSubmit = (newContent) => {
-    contentChange(props.task, newContent);
+    taskContentChange(props.task, newContent);
     setEditing(!editing);
   };
 

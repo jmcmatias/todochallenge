@@ -1,6 +1,5 @@
 // Lander Component
 import { Wrapper, Block, Hidecompleted, Dots } from "./Lander-style";
-import { useState } from "react";
 import List from "./List";
 import Simpleform from "./Simpleform";
 import Header from "./Header";
@@ -17,30 +16,9 @@ const Lander = () => {
     hideCompleted();
   };
 
-  /*
-  
-
-
-  const handleOnDelete = (id) => {
-    const tempTasks = tasks.filter((task) => task.id != id); // creates a copy of tasks except the one with the id received
-    setTasks(tempTasks);
-  };
-
- 
-
-  // Sort Logic
-  const handleSort = () => {
-    setSorted(!sorted);
-    if (sorted)
-      setTasks(tasks.sort((a, b) => a.content.localeCompare(b.content)));
-    else setTasks(tasks.sort((a, b) => a.id - b.id));
-  };
-*/
-  // Render
   return (
     <Wrapper>
       <Header />
-
       <Block>
         <Simpleform
           innerText={""}
