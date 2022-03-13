@@ -11,6 +11,7 @@ const Item = styled.li`
   background-color: #c3cbdc;
   background-image: linear-gradient(147deg, #c3cbdc 0%, #edf1f4 74%);
   box-shadow: 2px 2px 3px 0px gray;
+  z-index:-1;
 `;
 
 const TaskStyle = styled.div`
@@ -19,6 +20,7 @@ const TaskStyle = styled.div`
   align-items: center;
   width: 100%;
   font-size: 1em;
+  
 `;
 
 const TaskStatus = styled.input`

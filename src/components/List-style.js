@@ -7,10 +7,10 @@ const TaskList = styled.ul`
 `;
 
 const ListMap = styled.div`
-padding:1em;
+  padding:1em;
   height:fit-content;
   max-height:600px;
-  overflow-y:scroll;
+  overflow:auto;
   ::-webkit-scrollbar {
     display: none;
 }
