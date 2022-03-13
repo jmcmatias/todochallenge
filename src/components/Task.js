@@ -1,39 +1,49 @@
-import { TaskStyle, Item, TaskStatus, Options, Link } from "./Task-style";
+import {
+  TaskStyle,
+  Contentwrapper,
+  Item,
+  TaskStatus,
+  Options,
+  Link,
+} from "./Task-style";
 import Simpleform from "./Simpleform";
 import { useState } from "react";
 
 const Task = (props) => {
- const [editing,setEditing]=useState(false)
+  const [editing, setEditing] = useState(false);
 
   const handleStatusChange = () => {
     props.onStatusChange(props.task);
   };
 
-const handleEdit = () => {
-  setEditing(!editing)
-}
+  const handleEdit = () => {
+    setEditing(!editing);
+  };
 
-const handleDelete =() => {
-  props.onDelete(props.task.id)
-}
+  const handleDelete = () => {
+    props.onDelete(props.task.id);
+  };
 
-const handleSubmit = (newContent) => {
-  props.onContentChange(props.task,newContent)
-  setEditing(!editing)
-}
+  const handleSubmit = (newContent) => {
+    props.onContentChange(props.task, newContent);
+    setEditing(!editing);
+  };
 
   return (
     <Item>
-      <Checkbox
-        taskStatus={props.taskStatus}
-        onChange={handleStatusChange}
-      ></Checkbox>
       <TaskStyle>
-        <Content editing={editing} task={props.task} inputValue={handleSubmit} />  
+        <Checkbox taskStatus={props.taskStatus} onChange={handleStatusChange} />
+        <Contentwrapper>
+          <Content
+            editing={editing}
+            task={props.task}
+            inputValue={handleSubmit}
+          />
+        </Contentwrapper>
         <Options>
-          <Option optionName={"Edit"} onClick={handleEdit}/>
+          <Option optionName={"Edit"} onClick={handleEdit} />
           |
-          <Option optionName={"Delete"} onClick={handleDelete}/>
+          <Option optionName={"Delete"} onClick={handleDelete} />
         </Options>
       </TaskStyle>
     </Item>
@@ -54,14 +64,17 @@ const Option = (props) => {
   return <Link onClick={props.onClick}>{props.optionName}</Link>;
 };
 const Content = (props) => {
-  if(!props.editing){
-    return <>{props.task.content}</>  
+  if (!props.editing) {
+    return <>{props.task.content}</>;
   } else {
-    return(
-      <Simpleform innerText={props.task.content} buttonName={"save"} inputValue={props.inputValue}/>
-    )
+    return (
+      <Simpleform
+        innerText={props.task.content}
+        buttonName={"save"}
+        inputValue={props.inputValue}
+      />
+    );
   }
-}
+};
 
 export default Task;
-

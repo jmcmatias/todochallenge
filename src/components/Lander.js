@@ -12,6 +12,8 @@ const Lander = () => {
   const [showAll, setShowall] = useState(true);
   const [sorted, setSorted] = useState(true);
 
+
+  console.log(tasks)
   // New Task Logic
   const handleAddNewTask = (content) => {
     const setId = () => (tasks.length > 0 ? maxTaskId(tasks) + 1 : 0);
