@@ -1,34 +1,21 @@
+import { useTaskListContext } from "../providers/TasksProvider";
 import { TaskList, TitleStyle, ListMap } from "./List-style";
 import Task from "./Task";
 
-const List = (props) => {
-  const handleStatusChange = (task) => {
-    props.onStatusChange(task);
-  };
-
-  const handleContentChange = (task, newContent) => {
-    props.onContentChange(task, newContent);
-  };
-
-  const handleOnDelete = (id) => {
-    console.log("List", id);
-    props.onDelete(id);
-  };
+const List = () => {
+  const { tasksToShow, alphaSort, sorted } = useTaskListContext();
 
   return (
     <TaskList>
-      <TitleStyle onClick={props.onSort}>
-        <Sorted sorted={props.sorted} />
+      <TitleStyle onClick={alphaSort}>
+        <Sorted sorted={sorted} />
       </TitleStyle>
       <ListMap>
-        {props.tasksList.map((task) => (
+        {tasksToShow.map((task) => (
           <Task
             key={task.id}
             task={task}
             taskStatus={task.completed}
-            onStatusChange={handleStatusChange}
-            onContentChange={handleContentChange}
-            onDelete={handleOnDelete}
           />
         ))}
       </ListMap>

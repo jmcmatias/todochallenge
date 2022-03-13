@@ -2,6 +2,7 @@ import React from "react";
 import { useState } from "react";
 import { AppStyle } from "./App-style";
 import Lander from "./components/Lander";
+import TasksProvider from "./providers/TasksProvider";
 
 export const TaskList = React.createContext();
 
@@ -21,7 +22,9 @@ function App() {
 
   return (
     <AppStyle windowHeight={appHeight}>
-      <Lander/>
+      <TasksProvider>
+        <Lander/>
+      </TasksProvider>
     </AppStyle>
   );
 }
