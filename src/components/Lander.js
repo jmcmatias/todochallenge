@@ -15,7 +15,7 @@ const Lander = () => {
 
   const handleHideCompletedTasks = () => {
     hideCompleted();
-  }
+  };
 
   /*
   
@@ -42,27 +42,18 @@ const Lander = () => {
       <Header />
 
       <Block>
-       
-          <Simpleform
-            innerText={""}
-            placeholder={"Type Your To-Do task here"}
-            buttonName={"Create"}
-            inputValue={handleAddNewTask}
-          />
-      
+        <Simpleform
+          innerText={""}
+          placeholder={"Type Your To-Do task here"}
+          buttonName={"Create"}
+          inputValue={handleAddNewTask}
+        />
       </Block>
       <Block>
-    
-          <List
-          //tasksList={taskList}
-          //onStatusChange={handleTaskStatusChange}
-          //onContentChange={handleContentChange}
-          //onDelete={handleOnDelete}
-          //onSort={handleSort}
-          //sorted={sorted}
-          />
-       
-        <Dots></Dots>
+        <List/>
+        <Dots>
+          <TasksHidden/>
+        </Dots>
       </Block>
       <Hidecompleted>
         Hide completed
@@ -72,10 +63,11 @@ const Lander = () => {
   );
 };
 
-const TasksHidden = ({ tasks, showAll }) => {
+const TasksHidden = () => {
+  const {taskList, showAll} = useTaskListContext()
   if (!showAll) {
-    if (tasks.filter((task) => task.completed === true).length > 0) {
-      const tasksCompleted = tasks.filter(
+    if (taskList.filter((task) => task.completed === true).length > 0) {
+      const tasksCompleted = taskList.filter(
         (task) => task.completed === true
       ).length;
       return "•• " + tasksCompleted + " tasks completed ••";

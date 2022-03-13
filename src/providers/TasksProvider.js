@@ -54,7 +54,9 @@ const TasksProvider = ({ children }) => {
   : taskList.filter((task) => task.completed === false);
 
   const contextValue = {
+    taskList,
     tasksToShow,
+    showAll,
     addNewTask,
     taskStatusChange,
     contentChange,
