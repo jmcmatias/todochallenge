@@ -8,12 +8,15 @@ import {
 } from "./Task-style";
 import Simpleform from "./Simpleform";
 import { useState } from "react";
+import { useTaskListContext } from "../providers/TasksProvider";
 
 const Task = (props) => {
+  const { taskStatusChange, contentChange } = useTaskListContext()
   const [editing, setEditing] = useState(false);
 
+
   const handleStatusChange = () => {
-    props.onStatusChange(props.task);
+    taskStatusChange(props.task);
   };
 
   const handleEdit = () => {
@@ -25,7 +28,7 @@ const Task = (props) => {
   };
 
   const handleSubmit = (newContent) => {
-    props.onContentChange(props.task, newContent);
+    contentChange(props.task, newContent);
     setEditing(!editing);
   };
 
