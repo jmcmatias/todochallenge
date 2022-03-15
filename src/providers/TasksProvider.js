@@ -45,7 +45,7 @@ const TasksProvider = ({ children }) => {
 
   // Delete Logic
   const deleteTask = (id) => {
-    const tempTasks = taskList.filter((task) => task.id != id); // creates a copy of tasks except the one with the id received
+    const tempTasks = taskList.filter((task) => task.id !== id); // creates a copy of tasks except the one with the id received
     setTaskList(tempTasks);
   };
 
@@ -75,6 +75,10 @@ const TasksProvider = ({ children }) => {
       case 2:
         setTaskList(taskList.sort((a, b) => a.date.localeCompare(b.date)));
         break      
+      default:
+        setTaskList(taskList.sort((a, b) => a.date.localeCompare(b.date)));
+        break 
+
     }
   };
 

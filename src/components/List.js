@@ -30,6 +30,9 @@ const Sorted = ({ sorted }) => {
       return <div title="Sort alphabetically Z-A">Tasks ↓</div>;
     case 2:
       return <div title="Sort by id">Tasks ↑</div>;
+    default:
+      return <div title="Sort alphabetically A-Z">Tasks</div>;
+
   }
 };
 
