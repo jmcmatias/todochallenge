@@ -29,7 +29,7 @@ const Sorted = ({ sorted }) => {
     case 1:
       return <div title="Sort alphabetically Z-A">Tasks ↓</div>;
     case 2:
-      return <div title="Sort by id">Tasks ↑</div>;
+      return <div title="Sort by Date Created">Tasks ↑</div>;
     default:
       return <div title="Sort alphabetically A-Z">Tasks</div>;
 
