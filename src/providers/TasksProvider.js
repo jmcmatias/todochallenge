@@ -13,7 +13,11 @@ const TasksProvider = ({ children }) => {
   // New Task Logic
   const addNewTask = (content) => {
     const setId = () => (taskList.length > 0 ? maxTaskId(taskList) + 1 : 0);
-    const maxTaskId = (tks) => Math.max.apply(null,tks.map((t) => t.id));
+    const maxTaskId = (tks) =>
+      Math.max.apply(
+        null,
+        tks.map((t) => t.id)
+      );
     const newTask = {
       id: setId(),
       type: "Task",
@@ -26,8 +30,8 @@ const TasksProvider = ({ children }) => {
     }
   };
 
- // Tasks editing logic
- const taskStatusChange = (task) => {
+  // Tasks editing logic
+  const taskStatusChange = (task) => {
     task.completed = !task.completed;
     saveTask(task);
   };
@@ -45,36 +49,42 @@ const TasksProvider = ({ children }) => {
 
   // Delete Logic
   const deleteTask = (id) => {
-    const tempTasks = taskList.filter((task) => task.id != id); // creates a copy of tasks except the one with the id received
+    const tempTasks = taskList.filter((task) => task.id !== id); // creates a copy of tasks except the one with the id received
     setTaskList(tempTasks);
   };
 
-   // Hide Complete task Logic
+  // Hide Complete task Logic
 
-   const hideCompleted = (e) => {
+  const hideCompleted = (e) => {
     setShowall(!showAll);
   };
 
   const tasksToShow = showAll
-  ? taskList
-  : taskList.filter((task) => task.completed === false);
+    ? taskList
+    : taskList.filter((task) => task.completed === false);
 
-   // Sort Logic
-   const alphaSort = () => {
-    let sorting=sorted+1;
+  // Sort Logic
+  const alphaSort = () => {
+    let sorting = sorted + 1;
     setSorted(sorting);
-    if (sorting > 2)
-      setSorted(0)
-    switch(sorted){
+    if (sorting > 2) setSorted(0);
+    switch (sorted) {
       case 0:
-        setTaskList(taskList.sort((a, b) => a.content.localeCompare(b.content)));       
-        break
+        setTaskList(
+          taskList.sort((a, b) => a.content.localeCompare(b.content))
+        );
+        break;
       case 1:
-        setTaskList(taskList.sort((a, b) => b.content.localeCompare(a.content)));
-        break
+        setTaskList(
+          taskList.sort((a, b) => b.content.localeCompare(a.content))
+        );
+        break;
       case 2:
         setTaskList(taskList.sort((a, b) => a.date.localeCompare(b.date)));
-        break      
+        break;
+      default:
+        setTaskList(taskList.sort((a, b) => a.date.localeCompare(b.date)));
+        break;
     }
   };
 

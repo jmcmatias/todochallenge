@@ -1,5 +1,3 @@
-import Task from "./components/Task";
-
 const testTasks = [
   {
     id: 0,
