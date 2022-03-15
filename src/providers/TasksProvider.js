@@ -65,18 +65,14 @@ const TasksProvider = ({ children }) => {
     setSorted(sorting);
     if (sorting > 2)
       setSorted(0)
-    console.log(sorting)
     switch(sorted){
       case 0:
-        console.log("case 0")
         setTaskList(taskList.sort((a, b) => a.content.localeCompare(b.content)));       
         break
       case 1:
-        console.log("case 1")
         setTaskList(taskList.sort((a, b) => b.content.localeCompare(a.content)));
         break
       case 2:
-        console.log("case 2")
         setTaskList(taskList.sort((a, b) => a.date.localeCompare(b.date)));
         break      
     }

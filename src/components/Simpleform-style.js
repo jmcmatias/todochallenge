@@ -12,8 +12,14 @@ const Input = styled.input`
   border: none;
   width: 100%;
   padding: 5px;
-  font-size:1em;
+  font-size: 1em;
   &:focus {
+    outline: none;
+    box-shadow: ${insetShadow};
+    -webkit-box-shadow: ${insetShadow};
+    -moz-box-shadow: ${insetShadow};
+  }
+  &:hover {
     outline: none;
     box-shadow: ${insetShadow};
     -webkit-box-shadow: ${insetShadow};
