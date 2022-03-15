@@ -8,7 +8,7 @@ const startingTasks = testTasks;
 const TasksProvider = ({ children }) => {
   const [taskList, setTaskList] = useState(startingTasks);
   const [showAll, setShowall] = useState(true);
-  const [sorted, setSorted] = useState(true);
+  const [sorted, setSorted] = useState(0);
 
   // New Task Logic
   const addNewTask = (content) => {
@@ -61,10 +61,25 @@ const TasksProvider = ({ children }) => {
 
    // Sort Logic
    const alphaSort = () => {
-    setSorted(!sorted);
-    if (sorted)
-      setTaskList(taskList.sort((a, b) => a.content.localeCompare(b.content)));
-    else setTaskList(taskList.sort((a, b) => a.id - b.id));
+    let sorting=sorted+1;
+    setSorted(sorting);
+    if (sorting > 2)
+      setSorted(0)
+    console.log(sorting)
+    switch(sorted){
+      case 0:
+        console.log("case 0")
+        setTaskList(taskList.sort((a, b) => a.content.localeCompare(b.content)));       
+        break
+      case 1:
+        console.log("case 1")
+        setTaskList(taskList.sort((a, b) => b.content.localeCompare(a.content)));
+        break
+      case 2:
+        console.log("case 2")
+        setTaskList(taskList.sort((a, b) => a.date.localeCompare(b.date)));
+        break      
+    }
   };
 
   const contextValue = {

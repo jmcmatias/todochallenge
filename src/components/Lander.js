@@ -8,13 +8,9 @@ import { useTaskListContext } from "../providers/TasksProvider";
 const Lander = () => {
   const { addNewTask, hideCompleted } = useTaskListContext();
 
-  const handleAddNewTask = (content) => {
-    addNewTask(content);
-  };
+  const handleAddNewTask = (content) => addNewTask(content);
 
-  const handleHideCompletedTasks = () => {
-    hideCompleted();
-  };
+  const handleHideCompletedTasks = () => hideCompleted();
 
   return (
     <Wrapper>
@@ -28,9 +24,9 @@ const Lander = () => {
         />
       </Block>
       <Block>
-        <List/>
+        <List />
         <Dots>
-          <TasksHidden/>
+          <TasksHidden />
         </Dots>
       </Block>
       <Hidecompleted>
@@ -42,12 +38,10 @@ const Lander = () => {
 };
 
 const TasksHidden = () => {
-  const {taskList, showAll} = useTaskListContext()
+  const { taskList, showAll } = useTaskListContext();
   if (!showAll) {
     if (taskList.filter((task) => task.completed === true).length > 0) {
-      const tasksCompleted = taskList.filter(
-        (task) => task.completed === true
-      ).length;
+      const tasksCompleted = taskList.filter((task) => task.completed === true).length;
       return "•• " + tasksCompleted + " tasks completed ••";
     }
   }

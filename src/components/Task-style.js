@@ -11,7 +11,6 @@ const Item = styled.li`
   background-color: #c3cbdc;
   background-image: linear-gradient(147deg, #c3cbdc 0%, #edf1f4 74%);
   box-shadow: 2px 2px 3px 0px gray;
-  z-index:-1;
 `;
 
 const TaskStyle = styled.div`
@@ -20,7 +19,6 @@ const TaskStyle = styled.div`
   align-items: center;
   width: 100%;
   font-size: 1em;
-  
 `;
 
 const TaskStatus = styled.input`
@@ -33,16 +31,15 @@ const TaskStatus = styled.input`
     cursor: pointer;
   }
 `;
-const Contentwrapper=styled.div`
-padding-left:0.3em;
-width:65%;
-word-wrap: break-word;
+const Contentwrapper = styled.div`
+  padding-left: 0.3em;
+  width: 65%;
+  word-wrap: break-word;
 `;
 
 const Options = styled.div`
-  display:flex;
+  display: flex;
   margin-left: auto;
-  
 `;
 
 const Link = styled.button`
@@ -55,4 +52,4 @@ const Link = styled.button`
   }
 `;
 
-export { TaskStyle, Item, TaskStatus,Contentwrapper, Options, Link };
+export { TaskStyle, Item, TaskStatus, Contentwrapper, Options, Link };
