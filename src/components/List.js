@@ -12,11 +12,10 @@ const List = () => {
       </TitleStyle>
       <ListMap>
         {tasksToShow.map((task) => (
-          <Task
-            key={task.id}
-            task={task}
-            taskStatus={task.completed}
-          />
+          <Task 
+            key={task.id} 
+            task={task} 
+            taskStatus={task.completed} />
         ))}
       </ListMap>
     </TaskList>
@@ -24,7 +23,7 @@ const List = () => {
 };
 
 const Sorted = ({ sorted }) => {
-  switch(sorted){
+  switch (sorted) {
     case 0:
       return <div title="Sort alphabetically A-Z">Tasks</div>;
     case 1:
