@@ -24,8 +24,14 @@ const List = () => {
 };
 
 const Sorted = ({ sorted }) => {
-  if (sorted) return <div title="Sort alphabetically">Tasks</div>;
-  else return <div title="Sort by id">Tasks ↓</div>;
+  switch(sorted){
+    case 0:
+      return <div title="Sort alphabetically A-Z">Tasks</div>;
+    case 1:
+      return <div title="Sort alphabetically Z-A">Tasks ↓</div>;
+    case 2:
+      return <div title="Sort by id">Tasks ↑</div>;
+  }
 };
 
 export default List;
